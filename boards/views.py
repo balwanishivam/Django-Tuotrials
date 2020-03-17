@@ -4,13 +4,7 @@ from .models import Board
 
 
 def home(request):
-    boards=Board.objects.all()
-    board_name=list()
-
-    for board in boards:
-        board_name.append(board.name)
-
-    response_html='<br>'.join(board_name)
-    return HttpResponse(response_html)
+    boards = Board.objects.all()
+    return render(request, 'home.html', {'boards': boards})
 
 # Create your views here.
